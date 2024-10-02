@@ -6,7 +6,6 @@ def reverse_pattern(pattern:str) -> str:
     
     reverse = ''
     
-    # Loop to complement each char in the pattern
     for c in pattern:
         for i in range(base_length):
             if c == base[i]:
@@ -19,9 +18,9 @@ def count_k_mer(genome:str, pattern:str) -> int:
     pattern_complement = reverse_pattern(pattern)
     pattern_length = len(pattern)
 
-    # Loop to count the amount of times a pattern appear in a genome
     seen = ''
     num_appear = 0
+    
     for c in genome:
         seen += c
         if len(seen) == pattern_length:
@@ -34,7 +33,7 @@ def count_k_mer(genome:str, pattern:str) -> int:
 # Function to find the most frequent patterns in a genome
 def frequent_k_mer(genome:str, k:int) -> list:
     patterns = []
-    
+
     # Store all the appearing patterns of length k & its frequency in the genome 
     seen = ''
     for c in genome:
