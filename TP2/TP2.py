@@ -1,9 +1,11 @@
-# Function to find the complement(reverse) of a genome strand
+# Function to find the complement (reverse) of a genome strand
 def reverse_pattern(pattern:str) -> str:
     base = 'ATCG'
     base_pair = 'TAGC'
     base_length = len(base)
-
+    
+    reverse = ''
+    
     # Loop to complement each char in the pattern
     for c in pattern:
         for i in range(base_length):
@@ -16,10 +18,11 @@ def reverse_pattern(pattern:str) -> str:
 def count_k_mer(genome:str, pattern:str) -> int:
     pattern_complement = reverse_pattern(pattern)
     pattern_length = len(pattern)
-
-    # Loop to check if each possible pattern (same len as pattern) is identical w/ pattern
+    
     seen = ''
     num_appear = 0
+
+    # Loop to check if each possible pattern (same len as pattern) is identical w/ pattern
     for c in genome:
         seen += c
         if len(seen) == pattern_length:
@@ -29,10 +32,10 @@ def count_k_mer(genome:str, pattern:str) -> int:
     
     return num_appear
 
-# Function to find the most frequent pattern in a genome
+# Function to find the most frequent patterns in a genome
 def frequent_k_mer(genome:str, k:int) -> list:
     patterns = []
-
+    
     # Store all the appearing patterns of length k & its frequency in the genome 
     seen = ''
     for c in genome:
