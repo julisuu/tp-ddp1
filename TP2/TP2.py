@@ -18,11 +18,10 @@ def reverse_pattern(pattern:str) -> str:
 def count_k_mer(genome:str, pattern:str) -> int:
     pattern_complement = reverse_pattern(pattern)
     pattern_length = len(pattern)
-    
+
+    # Loop to count the amount of times a pattern appear in a genome
     seen = ''
     num_appear = 0
-
-    # Loop to check if each possible pattern (same len as pattern) is identical w/ pattern
     for c in genome:
         seen += c
         if len(seen) == pattern_length:
@@ -71,12 +70,12 @@ if __name__ == '__main__':
             continue
         break
     
-    # User select which function to run
     print('Choose an option:\n'
           '[1] Compute a reverse complement of a k-mer pattern\n'
           '[2] Count a k-mer pattern\n'
           '[3] Find most frequent k-mer patterns\n')
-    
+
+    # User select which function to run
     while True:
         try:
             user_selection = input('Select an operation [1/2/3]: ')
